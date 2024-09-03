@@ -1,0 +1,36 @@
+/* CustomCursor.css */
+
+div.cursor {
+  position: fixed;
+  width: 10px; /* Size of the small cursor */
+  height: 10px; /* Size of the small cursor */
+  background-color: rgb(0, 0, 0); /* Color of the small cursor */
+  border-radius: 50%; /* Make it circular */
+  pointer-events: none; /* Prevent mouse events */
+  transition: transform 0.3s cubic-bezier(0, 0.62, 0.34, 1.13); /* Smooth movement */
+  transform: translate(-50%, -50%); /* Center the cursor */
+  z-index: 10;
+  opacity: 1;
+}
+
+.cursor-large {
+  position: fixed;
+  width: 100px; /* Size of the large cursor */
+  height: 100px; /* Size of the large cursor */
+  background-color: rgba(209, 209, 209, 0.256); /* Color of the large cursor */
+  border-radius: 50%; /* Make it circular */
+  pointer-events: none; /* Prevent mouse events */
+  transition: transform 0.3s cubic-bezier(0, 0.62, 0.34, 1.13);
+  transform: translate(-50%, -50%); /* Center the cursor */
+  border: 1px solid rgba(0, 0, 0, 0.241);
+  z-index: 11;
+}
+
+.cursor-large.clicked {
+  transform: translate(-50%, -50%) scale(1.5); /* Scale up on click */
+  opacity: 0.5;
+}
+
+.cursor.clicked {
+  transform: translate(-50%, -50%) scale(1.2); /* Slightly scale up small cursor on click */
+}
