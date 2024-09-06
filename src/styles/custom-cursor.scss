@@ -34,3 +34,12 @@ div.cursor {
 .cursor.clicked {
   transform: translate(-50%, -50%) scale(1.2); /* Slightly scale up small cursor on click */
 }
+
+@media (max-width: 420px) {
+  div.cursor {
+    display: none;
+  }
+  .cursor-large {
+    display: none;
+  }
+}

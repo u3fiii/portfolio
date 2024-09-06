@@ -22,16 +22,16 @@ const CustomCursor = () => {
       setTimeout(() => setIsClicked(false), 300); // Reset click state after animation
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseenter", handleMouseEnter);
-    window.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("click", handleClick);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseenter", handleMouseEnter);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("click", handleClick);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("click", handleClick);
     };
   }, []);
 

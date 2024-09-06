@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap");
 
 * {
   margin: 0;
@@ -11,27 +11,80 @@
   width: fit-content;
   padding: 0 0.5rem;
   border-radius: 3rem;
-
+  position: fixed;
+  z-index: 9;
+  top: 20px; // Keep this for larger screens
   opacity: 0;
   animation: headerReveal 0.5s cubic-bezier(0, 0.62, 0.33, 1.12) 0.2s forwards;
+
   .links {
     display: flex;
+    gap: 0.5rem;
+
     .link-wrapper {
       background-color: transparent;
       padding: 0.5rem 0;
+
       .link {
         font-family: "Montserrat";
         font-weight: 500;
         color: rgb(63, 59, 65);
         padding: 0.5rem 1rem;
         border-radius: 3rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        .link-icon {
+          color: black; // Default color for icons
+        }
       }
     }
+
     .link-wrapper:hover {
       .link {
         color: black;
         background-color: rgb(238, 238, 238);
         animation: linkHover 0.3s cubic-bezier(0, 0.62, 0.33, 1.12) forwards;
+      }
+    }
+
+    .link-wrapper.active {
+      .link {
+        color: white;
+        background-color: rgb(0, 0, 0);
+        animation: linkHover 0.3s cubic-bezier(0, 0.62, 0.33, 1.12) forwards;
+
+        .link-icon {
+          color: white; // Change icon color to white when link-wrapper is active
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .header {
+    width: fit-content;
+    border-radius: 5rem;
+    top: 16px; // Ensure it stays at the top
+    position: fixed; // Keep it fixed
+
+    .links {
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      .link-wrapper {
+        .link {
+          font-size: 0.9rem;
+          padding: 0.3rem 0.8rem;
+
+          .link-icon {
+            display: none; // Hide the icon in mobile view
+          }
+        }
       }
     }
   }

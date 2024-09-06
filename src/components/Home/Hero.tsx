@@ -1,17 +1,19 @@
-import "../styles/hero.scss";
-import profilePic from "../assets/image 1.png";
-import downloadIcon from "../assets/download.svg";
-import InstagramIcon from "../assets/instagram.svg";
-import DribbleIcon from "../assets/dribbble.svg";
-import githubIcon from "../assets/github.svg";
+import "../../styles/home/hero.scss";
 
-import TypingEffect from "./TypingEffect";
+import downloadIcon from "../../assets/download.svg";
+import InstagramIcon from "../../assets/instagram.svg";
+import DribbleIcon from "../../assets/dribbble.svg";
+import githubIcon from "../../assets/github.svg";
+
+import CharacterMotion from "./CharacterMotion";
+
+import TypingEffect from "../TypingEffect";
 
 const Hero = () => {
   return (
     <div className="hero">
       <div className="profile-pic-wrapper">
-        <img src={profilePic} alt="Profile Pic" />
+        <CharacterMotion />
       </div>
       <div className="right-texts">
         <div className="hero-title">
