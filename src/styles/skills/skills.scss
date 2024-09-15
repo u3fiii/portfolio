@@ -8,11 +8,11 @@
 
 /* skills.scss */
 .skills {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0rem;
   font-family: "Montserrat";
   width: 100%;
   h2 {
@@ -27,23 +27,31 @@
     gap: 1rem;
     justify-content: center;
     .skills-category {
-      width: 350px;
+      border: 3px solid rgb(238, 238, 238);
+      width: 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 2rem 1rem 1rem 1rem;
       gap: 1rem;
       margin-bottom: 2rem;
-      border: 3px solid black;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
+      background-color: white;
 
       transition: transform 0.3s ease; // Add transition for category hover
       h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
         color: black;
         width: 200px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        .category-icon {
+          width: 150px;
+        }
       }
 
       .skills-list {
@@ -52,14 +60,15 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        width: 100%;
         .skill-item {
           display: flex;
           align-items: center;
           font-size: 1rem;
           flex: 1;
           font-weight: 500;
-          border: 3px solid black;
-          border-radius: 5rem;
+          background-color: rgb(244, 244, 244);
+          border-radius: 0.3rem;
           padding: 0.5rem;
           gap: 1rem;
           transition: background-color 0.3s ease, color 0.3s ease; // Add transition for item hover
@@ -68,16 +77,7 @@
     }
     .skills-category:hover {
       transform: scale(1.02); // Scale up the category on hover
-      background-color: black;
-      h3 {
-        color: white;
-      }
-      .skills-list {
-        .skill-item {
-          background-color: rgba(255, 255, 255, 0.114);
-          color: white;
-        }
-      }
+      border: 3px solid black;
     }
   }
 }

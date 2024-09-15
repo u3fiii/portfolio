@@ -16,6 +16,7 @@ const Projects: React.FC = () => {
           content_type: "kitchenCarousel", // Replace with your content type ID
         });
         setProjects(response.items); // Set the projects in state
+        console.log(projects);
       } catch (error) {
         console.error("Error fetching projects:", error);
       } finally {
@@ -77,6 +78,8 @@ const Projects: React.FC = () => {
             key={project.sys.id}
             id={project.sys.id} // Pass the id prop
             title={project.fields.title}
+            date={project.fields.date}
+            category={project.fields.category}
             description={project.fields.description}
             imageUrl={`https:${project.fields.image.fields.file.url}`} // Construct the image URL
           />
