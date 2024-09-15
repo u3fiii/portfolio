@@ -8,11 +8,13 @@
 
 /* skills.scss */
 .skills {
-  padding: 2rem;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   font-family: "Montserrat";
+  width: 100%;
   h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -23,7 +25,9 @@
   .category-wrapper {
     display: flex;
     gap: 1rem;
+    justify-content: center;
     .skills-category {
+      width: 350px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,7 +36,7 @@
       margin-bottom: 2rem;
       border: 3px solid black;
       border-radius: 1rem;
-      flex: 1;
+
       transition: transform 0.3s ease; // Add transition for category hover
       h3 {
         font-size: 1.5rem;
@@ -51,13 +55,12 @@
         .skill-item {
           display: flex;
           align-items: center;
-          padding: 0.5rem 0;
           font-size: 1rem;
-          width: 250px;
+          flex: 1;
           font-weight: 500;
           border: 3px solid black;
           border-radius: 5rem;
-          padding: 1rem;
+          padding: 0.5rem;
           gap: 1rem;
           transition: background-color 0.3s ease, color 0.3s ease; // Add transition for item hover
         }
