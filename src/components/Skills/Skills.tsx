@@ -1,4 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import designIcon from "../../assets/design.svg";
+import developmentIcon from "../../assets/development.svg";
+import motionIcon from "../../assets/motion.svg";
+
 import {
   faFigma,
   faReact,
@@ -10,7 +14,7 @@ import {
   faAmazon,
   faMicrosoft,
   faTwitch,
-} from "@fortawesome/free-brands-svg-icons"; // This should be changed to free-solid-svg-icons for some icons
+} from "@fortawesome/free-brands-svg-icons";
 import "../../styles/skills/skills.scss";
 
 const skillsData = {
@@ -37,24 +41,44 @@ const skillsData = {
   ],
 };
 
+// Define the category icons
+const categoryIcons = {
+  "Product Design": designIcon,
+  Development: developmentIcon,
+  "Motion Design": motionIcon,
+};
+
+// Define a type for the categories
+type SkillCategory = keyof typeof skillsData;
+
 const Skills = () => {
   return (
     <div className="skills" id="Skills">
       <h2>My Skills</h2>
       <div className="category-wrapper">
-        {Object.entries(skillsData).map(([category, skills]) => (
-          <div key={category} className="skills-category">
-            <h3>{category}</h3>
-            <ul className="skills-list">
-              {skills.map((skill) => (
-                <li key={skill.name} className="skill-item">
-                  <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
-                  <span>{skill.name}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {Object.entries(skillsData).map(([category, skills]) => {
+          const typedCategory = category as SkillCategory; // Type assertion here
+          return (
+            <div key={category} className="skills-category">
+              <h3>
+                <img
+                  src={categoryIcons[typedCategory]} // Use typedCategory here
+                  alt={`${category} icon`}
+                  className="category-icon"
+                />
+                {category}
+              </h3>
+              <ul className="skills-list">
+                {skills.map((skill) => (
+                  <li key={skill.name} className="skill-item">
+                    <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+                    <span>{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
