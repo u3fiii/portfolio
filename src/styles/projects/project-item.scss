@@ -13,9 +13,10 @@
   background-color: white;
   padding: 16px;
   border-radius: 1rem;
+  width: 300px;
   .project-item-img {
-    width: 380px;
-    height: 250px;
+    width: 100%;
+    height: 200px;
     object-fit: cover;
     border-radius: 0.6rem;
     pointer-events: none;
@@ -25,8 +26,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     .project-item-title {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: 700;
       color: black;
     }
@@ -35,14 +37,19 @@
       align-items: center;
       gap: 4px;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
+      img {
+        width: 18px;
+      }
     }
   }
 
   .project-item-description {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
+    height: 32px;
   }
+
   .project-item-categories {
     display: flex;
     gap: 8px;
