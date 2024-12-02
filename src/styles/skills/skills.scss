@@ -8,7 +8,7 @@
 
 /* skills.scss */
 .skills {
-  min-height: 90vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +16,10 @@
   gap: 2rem;
   font-family: "Montserrat";
   width: 100%;
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
   .skills-container {
     display: flex;
     justify-items: center;

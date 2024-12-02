@@ -39,35 +39,55 @@ const Contact = () => {
 
   return (
     <div className="contact" id="Contact">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Send</button>
-      </form>
+      <div className="left-part">
+        <img />
+        <h1>Let's Get In Touch</h1>
+        <p className="desktop-desc">
+          I am available for freelance work. Connect with me via email or
+          LinkedIn. I have experience in web development, mobile app
+          development, and software engineering. I am passionate about building
+          high-quality and scalable applications. Let's work together to bring
+          your ideas to life. Feel free to reach out to discuss your project
+          requirements and how I can help you achieve your goals.
+        </p>
+        <p className="mobile-desc">
+          I am available for freelance work. Connect with me via email or
+          LinkedIn.
+        </p>
+      </div>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
+            <input
+              placeholder="Name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-container">
+            <input
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-container">
+            <textarea
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+            />
+          </div>
+          <div className="button-container">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
