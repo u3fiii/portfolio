@@ -1,4 +1,3 @@
-// src/components/Projects.tsx
 import React, { useState, useEffect, useRef } from "react";
 import client from "../../data fetching/Contentful"; // Import the Contentful client
 import ProjectItem from "./ProjectItem"; // Import the ProjectItem component
@@ -27,6 +26,18 @@ const Projects: React.FC = () => {
     fetchProjects(); // Call the fetch function
   }, []);
 
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft -= 200; // Adjust the scroll amount as needed
+    }
+  };
+
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += 200; // Adjust the scroll amount as needed
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>; // Show loading state
   }
@@ -34,6 +45,10 @@ const Projects: React.FC = () => {
   return (
     <div className="projects" id="Projects">
       <h1 className="projects-title">Projects</h1>
+      <div className="arrow-container">
+        <div className="arrow arrow-right" onClick={scrollRight}></div>
+        <div className="arrow arrow-left" onClick={scrollLeft}></div>
+      </div>
       <div className="projects-container" ref={containerRef}>
         {projects.map((project) => (
           <ProjectItem
