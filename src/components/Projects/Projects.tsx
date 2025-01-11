@@ -1,40 +1,45 @@
 import React, { useState, useEffect, useRef } from "react";
 import client from "../../data fetching/Contentful"; // Import the Contentful client
-import ProjectItem from "./ProjectItem"; // Import the ProjectItem component
+import ProjectItem from "./ProjectItem";
+
 import "../../styles/projects/projects.scss";
+
+import arrowRight from "../../assets/projects/arrow-right.svg";
+import arrowLeft from "../../assets/projects/arrow-left.svg";
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<any[]>([]); // State to hold project data
   const [loading, setLoading] = useState(true); // Loading state
+  const [clickedArrow, setClickedArrow] = useState<string | null>(null); // State to manage clicked arrow
   const containerRef = useRef<HTMLDivElement>(null); // Initialize ref with null
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await client.getEntries({
-          content_type: "kitchenCarousel", // Replace with your content type ID
+          content_type: "kitchenCarousel",
         });
-        setProjects(response.items); // Set the projects in state
+        setProjects(response.items);
         console.log(projects);
       } catch (error) {
         console.error("Error fetching projects:", error);
       } finally {
-        setLoading(false); // Set loading to false
+        setLoading(false);
       }
     };
 
-    fetchProjects(); // Call the fetch function
+    fetchProjects();
   }, []);
 
-  const scrollLeft = () => {
+  const handleArrowClick = (direction: "left" | "right") => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 200; // Adjust the scroll amount as needed
-    }
-  };
+      const scrollAmount = direction === "left" ? -500 : 500;
+      containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      setClickedArrow(direction);
 
-  const scrollRight = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollLeft += 200; // Adjust the scroll amount as needed
+      setTimeout(() => {
+        setClickedArrow(null);
+      }, 400); // Remove the class after 1 second
     }
   };
 
@@ -46,8 +51,22 @@ const Projects: React.FC = () => {
     <div className="projects" id="Projects">
       <h1 className="projects-title">Projects</h1>
       <div className="arrow-container">
-        <div className="arrow arrow-right" onClick={scrollRight}></div>
-        <div className="arrow arrow-left" onClick={scrollLeft}></div>
+        <div
+          className={`arrow arrow-left ${
+            clickedArrow === "left" ? "clicked" : ""
+          }`}
+          onClick={() => handleArrowClick("left")}
+        >
+          <img src={arrowLeft} />
+        </div>
+        <div
+          className={`arrow arrow-right ${
+            clickedArrow === "right" ? "clicked" : ""
+          }`}
+          onClick={() => handleArrowClick("right")}
+        >
+          <img src={arrowRight} />
+        </div>
       </div>
       <div className="projects-container" ref={containerRef}>
         {projects.map((project) => (

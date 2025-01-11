@@ -39,7 +39,6 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       ? `${desc.substring(0, maxLength)}...`
       : desc;
   };
-
   return (
     <div className="project-item" onClick={handleClick}>
       {imageUrl && (

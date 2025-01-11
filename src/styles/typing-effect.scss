@@ -27,7 +27,11 @@
   }
 }
 
-
-@media (max-width: 400px) {
-  
+@media (max-width: 420px) {
+  .typing-effect {
+    .typing-cursor {
+      width: 6px;
+      height: 30px;
+    }
+  }
 }

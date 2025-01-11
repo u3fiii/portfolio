@@ -15,10 +15,16 @@
   opacity: 0;
   animation: itemScaleUP 0.5s ease-out 0.5s forwards;
   .arrow-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 0 2rem;
     .arrow {
       width: 40px;
       height: 40px;
-      background-color: red;
+    }
+    .arrow.clicked {
+      animation: click-animation 0.2s ease;
     }
   }
   .projects-title {
@@ -42,8 +48,14 @@
 
 @media (max-width: 440px) {
   .projects {
+    .arrow-container {
+      display: none;
+    }
     .projects-container {
       padding: 16px;
+      .arrow-container {
+        display: none;
+      }
     }
   }
 }
@@ -55,6 +67,18 @@
   }
   to {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
     transform: scale(1);
   }
 }

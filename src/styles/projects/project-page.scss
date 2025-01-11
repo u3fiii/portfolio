@@ -11,9 +11,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  text-align: center;
+  gap: 3rem;
+
+  .project-page-wrapper {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
   .main-image {
     width: 800px;
     border-radius: 1rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .project-page {
+    .project-page-wrapper {
+      max-width: 100%;
+    }
+    .main-image {
+      width: 100%;
+    }
   }
 }

@@ -32,17 +32,56 @@ const ProjectPage: React.FC = () => {
     return <div>Loading...</div>; // Show loading state
   }
 
+  console.log(project.fields);
   return (
     <div className="project-page">
-      {project.fields.image && (
-        <img
-          src={`https:${project.fields.image.fields.file.url}`}
-          alt={project.fields.title}
-          className="main-image"
-        />
-      )}
-      <h1>{project.fields.title}</h1>
-      <p>{project.fields.description}</p>
+      <div className="project-page-wrapper">
+        {project.fields.image && (
+          <img
+            src={`https:${project.fields.image.fields.file.url}`}
+            alt={project.fields.title}
+            className="main-image"
+          />
+        )}
+        <h1>{project.fields.title}</h1>
+        <p>{project.fields.description}</p>
+        <p>{project.fields.longDescription}</p>
+        {project.fields.secondImage && (
+          <img
+            src={`https:${project.fields.secondImage.fields.file.url}`}
+            alt={project.fields.title}
+            className="main-image"
+          />
+        )}
+        <p>{project.fields.longDescription}</p>
+
+        {project.fields.thirdImage && (
+          <img
+            src={`https:${project.fields.thirdImage.fields.file.url}`}
+            alt={project.fields.title}
+            className="main-image"
+          />
+        )}
+        <p>{project.fields.longDescription2}</p>
+
+        {project.fields.fourthImage && (
+          <img
+            src={`https:${project.fields.fourthImage.fields.file.url}`}
+            alt={project.fields.title}
+            className="main-image"
+          />
+        )}
+        <p>{project.fields.longDescription3}</p>
+
+        {project.fields.fifthImage && (
+          <img
+            src={`https:${project.fields.fifthImage.fields.file.url}`}
+            alt={project.fields.title}
+            className="main-image"
+          />
+        )}
+        <p>{project.fields.longDescription4}</p>
+      </div>
     </div>
   );
 };
